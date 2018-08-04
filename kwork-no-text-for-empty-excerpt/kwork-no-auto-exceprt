@@ -1,0 +1,21 @@
+<?php
+/*
+Plugin Name: Kwork - No auto-generated excerpt
+Plugin URI: https://www.kwork.fi/wp-kwork-no-auto-excerpt
+Description: Disables use of post text in case exceprt is empty. Show only manually entered excerpts.
+Version: 0.1
+Author: Antti Törrönen
+Author URI: http://www.kwork.fi/
+Copyright: Kwork Innovations
+Text Domain: kwork-no-auto-exceprt
+Domain Path: /kwork-no-auto-exceprt
+*/
+
+if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+
+add_action( 'init', 'remove_excerpt_init' );
+function wpse17478_init()
+{
+    remove_filter( 'get_the_excerpt', 'wp_trim_excerpt' );
+}
